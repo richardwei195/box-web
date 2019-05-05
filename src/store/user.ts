@@ -1,12 +1,22 @@
-const state = {
-  // token: getToken(),
+import { login, logout, getInfo } from '@/api/user';
+import Vuex, { ActionTree, MutationTree } from 'vuex';
+import { getToken, setToken, removeToken } from '@/utils/auth';
+
+interface UserState {
+  name: string;
+  avatar: string;
+  introduction: string;
+  token: string | undefined;
+}
+
+const userState: UserState = {
+  token: getToken(),
   name: '',
   avatar: '',
   introduction: '',
-  roles: [],
 };
 
-const mutations = {
+const mutations: MutationTree<any> = {
   SET_TOKEN: (state, token) => {
     state.token = token;
   },
@@ -24,7 +34,7 @@ const mutations = {
   },
 };
 
-const actions = {
+const actions: ActionTree<any, any> = {
   // user login
   login({ commit }, userInfo) {
     const { username, password } = userInfo;
@@ -34,9 +44,15 @@ const actions = {
         commit('SET_TOKEN', data.token);
         setToken(data.token);
         resolve();
-      }).catch((error) => {
+      }).catch((error: Error) => {
         reject(error);
       });
     });
   },
+};
+
+export default {
+  userState,
+  mutations,
+  actions,
 };

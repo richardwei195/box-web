@@ -9,6 +9,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.4.5",
     "js-cookie": "^2.2.0",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",
+    "@types/js-cookie": "^2.2.2",
     "@types/nprogress": "0.0.29",
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-pwa": "^3.7.0",
