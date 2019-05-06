@@ -52,7 +52,8 @@ const actions: ActionTree<any, any> = {
 };
 
 export default {
-  userState,
+  namespaced: true,
+  state: userState,
   mutations,
   actions,
 };
