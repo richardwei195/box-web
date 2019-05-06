@@ -4,7 +4,7 @@ import store from '@/store';
 import { getToken } from '@/utils/auth';
 
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API || 'http://box.richardweitech.cn/api',
+  baseURL: process.env.VUE_APP_BASE_API || 'https://box.richardweitech.cn/api/koudai',
   withCredentials: true,
   timeout: 5000,
 });
@@ -27,7 +27,7 @@ service.interceptors.response.use(
   (response) => {
     const res = response.data;
 
-    if (res.code !== 200) {
+    if (res.code !== 20000) {
       Message({
         message: res.message || 'error',
         type: 'error',
